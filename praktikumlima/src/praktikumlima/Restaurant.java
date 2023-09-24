@@ -52,8 +52,6 @@ public class Restaurant {
     public void tambahMenuMakanan(String nama, double harga, int stok) {
         MenuItem item = new MenuItem(nama, harga, stok);
         menu.add(item);
-        String berhasilPesan = ("Menu " + nama + " telah ditambahkan.");
-        logger.info(berhasilPesan);
     }
 
     public void tampilMenuMakanan() {
@@ -66,7 +64,7 @@ public class Restaurant {
 
     public void pesanMakanan() {
         logger.info("Masukkan nama makanan yang ingin dipesan: ");
-        String nama = scanner.nextLine();
+        String nama = scanner.next();
         logger.info("Masukkan jumlah yang ingin dipesan: ");
         int jumlah = scanner.nextInt();
 
@@ -83,18 +81,5 @@ public class Restaurant {
 
     public void tutupScanner() {
         scanner.close();
-    }
-
-    public static void main(String[] args) {
-        Restaurant restaurant = new Restaurant();
-
-        restaurant.tambahMenuMakanan("Nasi Goreng", 25000, 10);
-        restaurant.tambahMenuMakanan("Mie Goreng", 22000, 8);
-        restaurant.tambahMenuMakanan("Ayam Bakar", 35000, 12);
-
-        restaurant.tampilMenuMakanan();
-        restaurant.pesanMakanan();
-
-        restaurant.tutupScanner();
     }
 }
